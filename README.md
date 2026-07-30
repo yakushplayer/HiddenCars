@@ -68,8 +68,7 @@ npm run dev
 
 ```
 HiddenCars/
-  db/migrations/     SQL-схема
-  backend/           API + Socket.IO
+  backend/           API + Socket.IO + db/migrations
   frontend/          React UI
-  docker-compose.yml PostgreSQL
+  docker-compose.yml optional local Postgres
 ```

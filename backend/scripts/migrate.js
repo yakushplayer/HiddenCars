@@ -6,6 +6,7 @@ import pg from 'pg';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 dotenv.config({ path: path.resolve(__dirname, '../../.env') });
+dotenv.config({ path: path.resolve(__dirname, '../.env') });
 
 const databaseUrl = process.env.DATABASE_URL;
 if (!databaseUrl) {
@@ -13,7 +14,8 @@ if (!databaseUrl) {
   process.exit(1);
 }
 
-const migrationsDir = path.resolve(__dirname, '../../db/migrations');
+// Inside backend package so Railway Root Directory=backend still finds migrations
+const migrationsDir = path.resolve(__dirname, '../db/migrations');
 
 async function migrate() {
   const client = new pg.Client({ connectionString: databaseUrl });
